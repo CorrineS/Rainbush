@@ -1,0 +1,2510 @@
+/* Fonts */
+@font-face {
+  font-family: 'FilosofiaReg';
+  src: url("../webfonts/filosreg-071211001EmigreWebOnly.eot") format("eot");
+  src: url("../webfonts/filosreg-071211001EmigreWebOnly.eot?#iefix") format("embedded-opentype"), url("../webfonts/filosreg-071211001EmigreWebOnly.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'FilosofiaRegLin';
+  src: url("../webfonts/filosreglin-071211001EmigreWebOnly.eot") format("eot");
+  src: url("../webfonts/filosreglin-071211001EmigreWebOnly.eot?#iefix") format("embedded-opentype"), url("../webfonts/filosreglin-071211001EmigreWebOnly.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'LeagueGothic';
+  src: url("../webfonts/League_Gothic-webfont.eot") format("eot");
+  src: url("../webfonts/League_Gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../webfonts/League_Gothic-webfont.woff") format("woff");
+}
+
+/* Variables */
+/* Mixins */
+/*
+ * @file
+ * global.styles
+ *
+ * Styles you add here will load for all device sizes, they are "global", as
+ * opposed to "responsive" styles, which only load for a given breakpoint (media
+ * query) that you set in theme settings. See the README for more details.
+ *
+ *
+ * How to use this file:
+ * --------------------
+ *
+ * There are many empty selectors and some basic styles to act as a guide.
+ * Nothing is set in stone and you can change anything - even delete all of it
+ * and start with your own clean slate.
+ *
+ * To FORCE PRINT all selectors you can search and replace a single { (opening
+ * curly brace) and insert an empty comment. This is very useful in conjuction
+ * with FireSass: https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
+ *
+ * See global.base also which includes normalize.css and some additional
+ * helper classes and base styles.
+ */
+/* =============================================================================
+ *   Base
+ * ========================================================================== */
+/* 
+ * To preserve theme settings never apply font properties to the HTML element.
+ * This is critically important if you are using the Responsive JavaScript
+ * feature as this relies on being able to set a pseudo font family on the HTML
+ * element. If you need to set default font properties of any kind use the BODY
+ * element as these can be overridden using font theme settings.
+ */
+
+html {
+  background: white;
+}
+
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  background: url("images/bg_body.jpg");
+  padding-bottom: 10px;
+}
+
+
+a {
+  color: #a3141b;
+}
+
+a:hover {
+  color: #333;
+}
+
+/* Overrides */
+
+.field-collection-container {
+  border: none;
+}
+
+
+hr {
+  border-top: 1px dotted #666;
+  border-bottom: 0 none;
+  height:0;
+}
+
+/* =============================================================================
+ *   HTML Elements
+ * ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+h1 {
+  font-family: 'FilosofiaReg', Georgia, Times, Times New Roman, Times-roman, Serif;
+}
+
+
+pre,
+code,
+tt,
+samp,
+kbd,
+var {
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace, sans-serif;
+}
+
+/* =============================================================================
+ *   Wrappers
+ * ========================================================================== */
+/*
+ * Page wrapper, includes the .container class which sets the overall page or section width
+ * Main wrapper in page.tpl.php, the .container class sets the width of the page, do not add width to it!
+ */
+
+#page {
+  max-width: 960px;
+  padding: 0px 10px 10px 10px;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0px 0px 4px #AAA;
+}
+
+/*
+ * Wraps all header elements - branding and .region-header
+ */
+
+#mobile-header {
+  display: none;
+  background: url("images/bg_header.jpg") no-repeat 50% 50%;
+  z-index: 1000;
+}
+
+
+#header {
+  position: relative;
+  width: 960px;
+  height: 130px;
+  background: url("images/bg_header.jpg") no-repeat 50% 50% #631919;
+}
+
+#header #block-mmenu-menu-links {
+  display: none;
+}
+
+#header #header-links {
+  margin-right: 15px;
+  float: right;
+  padding-top: 8px;
+}
+
+#header-links a {
+  color: #EFEFEF;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  line-height: 14px;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+#header #header-links a:hover {
+  border-bottom: 1px dotted #EFEFEF;
+  text-decoration: none;
+}
+
+#header #header-links ul {
+  float: right;
+  clear: both;
+  margin-bottom: 4px;
+}
+
+#header #header-links ul li {
+  padding: 0px 7px;
+  border-left: 1px solid white;
+}
+
+#header #header-links ul li:first-child {
+  border: none;
+}
+
+/*#header #header-links form {
+  clear: both;
+  float: right;
+  margin: 0px 0px 5px 0px;
+  padding-right: 10px;
+}
+
+#header #header-links form input {
+  display: inline-block;
+  background: white;
+  padding: 4px;
+  border: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2em;
+}
+
+#header #header-links form input:first-child {
+  border-radius: 4px 0px 0px 4px;
+  width: 160px;
+}
+
+#header #header-links form input:last-child {
+  border-radius: 0px 4px 4px 0px;
+  margin-left: -2px;
+  font-style: italic;
+  padding-right: 15px;
+  background: white url("images/arrow-red.png") no-repeat 93% 50%;
+}
+
+#header #header-links form input:last-child:hover {
+  background-image: url("images/arrow-black.png");
+}
+*/
+#header-links a {
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.8em;
+}
+
+/*
+ * Wraps the sidebars the content column
+ */
+ 
+#columns {
+	width: 960px;
+}
+/*
+ * Main content column wrapper
+ */
+/*
+ * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column
+ */
+
+#main-content {
+  margin: 5px 0 0 0git;
+}
+
+
+/*
+ * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
+ */
+
+#content {
+  background: url("images/bg_content.jpg");
+  padding: 10px 10px 10px 10px;
+  font-size:0.75em;
+}
+
+/*
+ * Panels may need additional margin wrangling when in the $content region
+ */
+/*
+ * Full Width Wrappers
+ * These are used in the optional page--full-width-wrappers.tpl.php template.
+ * All have internal .container classes. In the full width wrapper template the
+ * .container classes set the width or max-width of the contained element - you
+ * can style this but never add any width/margin/padding/borders etc to .container
+ */
+/*
+ * Wraps #page
+ */
+/*
+ * Wraps the leaderboard
+ */
+/*
+ * Wraps the header
+ */
+
+#header-wrapper {
+  /* Debug styles, is this working */
+  background: rgba(255, 192, 203, 0.5);
+}
+
+/*
+ * Wraps the nav elements
+ */
+/*
+ * Wraps breadcrumb
+ */
+
+#breadcrumb-wrapper {
+  margin-left: 5px;
+}
+
+/*
+ * Wraps messages and help
+ */
+/*
+ * Wraps the secondary content/preface region
+ */
+/*
+ * Wraps the main content column
+ */
+/*
+ * Wraps the tertiary content/postfix region
+ */
+/*
+ * Footer wrapper
+ */
+
+#footer-wrapper {
+  /* Debug styles, is this working? */
+  background: rgba(255, 192, 203, 0.5);
+}
+
+/* =============================================================================
+ *   Branding
+ * ========================================================================== */
+/*
+ * Wraps all the branding elements, logo, name and slogan
+ */
+/*
+ * Logo
+ */
+
+#logo {
+  padding: 10px 0;
+}
+
+#logo img {
+  vertical-align: bottom;
+}
+
+/*
+ * Wrapper for the site name and slogan (hgroup)
+
+
+#mobile-header h2 a {
+  font-family: 'FilosofiaReg', Georgia, Times, Times New Roman, Times-roman, Serif;
+  color: white;
+  text-shadow: 1px 1px #000;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+}
+
+
+#mobile-header h1 {
+  color: white;
+  text-shadow: 1px 1px #000;
+}
+ */
+
+
+.header #site-name {
+  position: absolute;
+  font-family: 'FilosofiaReg', Georgia, Times, Times New Roman, Times-roman, Serif;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px #000;
+  top: 30px;
+  left: 10px;
+  margin: 0;
+  line-height: normal;
+}
+
+.header h1 {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  font-size: 3.6em;
+  margin: 0;
+  line-height: normal;
+}
+
+.header h1,
+.header a {
+  color: white;
+  text-shadow: 1px 1px #000;
+}
+
+.header h1:link, .header h1:visited,
+.header a:link,
+.header a:visited {
+  text-decoration: none;
+}
+
+/*
+.front .header #site-name {
+  position: absolute;
+  top: 52px;
+  left: 20px;
+  font-size: 58px;
+}
+
+
+ * Site slogan (h2)
+ */
+
+#site-slogan {
+  margin: 0;
+}
+
+/* =============================================================================
+ *   Page content header
+ * ========================================================================== */
+/*
+ * Main content header wraps the page title, tabs and actions links
+ */
+/*
+ * The main page title (h1)
+ */
+
+#page-title {
+  margin: 0;
+}
+
+/* =============================================================================
+ *   Misc Global Styles
+ * ========================================================================== */
+/*
+ * Feed icons
+ */
+/*
+ * Aggregator feed source
+ */
+
+#aggregator .feed-source .feed-icon {
+  display: inline;
+  float: none;
+  margin-right: 10px;
+}
+
+
+.feed-details dt,
+.feed-details dd {
+  display: inline;
+  margin: 0;
+}
+
+/*
+ * Generic styles for the more link
+ */
+/*
+ * Generic styles for links. See the ul.links declaration in node and comment stylesheets
+ */
+
+ul.links {
+  margin: 0;
+  padding: 0;
+}
+
+ul.links.inline {
+  display: block;
+}
+
+ul.links li {
+  display: inline;
+  list-style: none;
+  padding: 0 10px 0 0;
+}
+
+/*
+ * Search results are an ordered list so reset the margin
+ */
+
+.search-results {
+  margin: 0;
+}
+
+/* =============================================================================
+ *   Regions
+ * ========================================================================== */
+/*
+ * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
+ */
+
+.inset-wrapper .region {
+  float: right !important;
+}
+
+/*
+ * Regions have an inner div - perfect for adding margin, padding or borders
+ */
+/*
+ * Regions can be nested, such as when using Panels
+ */
+/*
+ * Header region, embedded in the #header
+ */
+/*
+ * Generally used to output Drupals help block, if the help module is enabled
+ */
+/*
+ * Secondary content
+ */
+/*
+ * Sits above the main content header, like a content-top region
+ */
+/*
+ * Sits below the main content, like a content-bottom region
+ */
+/*
+ * Sidebars - targets both
+ */
+/*
+ * First sidebar
+ */
+/*
+ * Second sidebar
+ */
+
+.region-swarthmore-default-sidebar {
+  width: 33.23%;
+}
+
+/*
+ * Tertiary content
+ */
+/*
+ * Footer region
+ */
+
+footer {
+  width: 960px;
+  margin-top: 10px;
+  background: url("../images/footer_bg1.jpg") repeat scroll left top #631919;
+  font-size: 0.755em;
+}
+
+footer a {
+  color: #EFEFEF;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  line-height: 0.8em;
+}
+
+footer a:hover {
+  border-bottom: 1px dotted #EFEFEF;
+  text-decoration: none;
+}
+
+footer #footer-links h5 {
+  font-family: "Helvetica", "Arial", sans-serif;
+  color: #EFEFEF;
+  font-size:1.15em;
+  font-weight: bold;
+  margin: 0.5em 0 0;
+}
+
+footer #footer-links h5 a {
+  color: white;
+}
+
+footer #footer-links > div {
+  float: left;
+  padding: 5px 0px 0px 30px;
+}
+
+footer #footer-links > div:first-child > div:first-child {
+  padding-left: 15px;
+}
+
+footer #footer-links > div:first-child div {
+  padding: 10px 25px;
+  float: left;
+  border-right: 1px solid #7e2727;
+  height: 120px;
+}
+
+footer #footer-links > div:first-child div li {
+  padding: 1px 0px;
+  display: block;
+}
+
+footer #footer-links > div:first-child div li a {
+  color: #EFEFEF;
+  font-size: 12px;
+  line-height: 13px;
+}
+
+footer #footer-links form {
+  clear: both;
+  margin: 0px 0px 5px 0px;
+  padding-right: 10px;
+}
+
+footer #footer-links form input {
+  display: inline-block;
+  background: white;
+  padding: 4px;
+  border: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2em;
+}
+
+footer #footer-links form input:first-child {
+  border-radius: 4px 0px 0px 4px;
+  width: 120px;
+}
+
+footer #footer-links form input:last-child {
+  border-radius: 0px 4px 4px 0px;
+  margin-left: -2px;
+  font-style: italic;
+  padding-right: 15px;
+  background: white url("images/arrow-red.png") no-repeat 93% 50%;
+}
+
+footer #footer-links form input:last-child:hover {
+  background-image: url("images/arrow-black.png");
+}
+
+footer #social-media {
+  margin: 0px;
+  padding: 0px;
+}
+
+footer #social-media li {
+  list-style-type: none;
+  display: inline;
+}
+
+footer #social-media li img {
+  height: 25px;
+  width: 25px;
+}
+
+footer #social-media li a:hover {
+  border: none;
+}
+
+footer #site-information {
+  clear: both;
+  padding: 5px 30px;
+  border-top: 1px solid #7e2727;
+}
+
+footer #site-information p {
+  color: #EFEFEF;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+/* =============================================================================
+ *   Links
+ * ========================================================================== */
+
+a {
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* =============================================================================
+ *   Primary, Secondary and Menu Bar region menus
+ * ========================================================================== */
+/*
+ * Use one of the following id's for granular control:
+ *  - #menu-bar (menu bar region)
+ *  - #primary-menu (main menu)
+ *  - #secondary-menu (secondary/user menu)
+ * You can target all of these with .nav or div[id$="menu-bar"]
+ */
+
+#menu-bar{
+	width: 960px;
+}
+
+/*.nav {
+  clear: both;
+  margin: 0px 0px 10px 0px !important;
+  background: url("images/bg_menu.gif");
+}*/
+
+.nav,.nav li,
+.nav ul.menu li {
+  background: url("images/bg_menu.gif");
+}
+.nav .menu-wrapper {
+  margin: 0px;
+}
+
+.nav ul,
+.nav ul.menu {
+  border-top: 1px solid #555;
+}
+
+.nav ul:hover,
+.nav ul.menu:hover {
+  background: url("images/bg_menu_active.gif");
+}
+
+
+.nav li.last a,
+.nav ul.menu li.last a {
+  border: none;
+}
+
+.nav li.active-trail,
+.nav ul.menu li.active-trail {
+  background: url("images/bg_menu_active.gif");
+}
+
+.nav li a,
+.nav ul.menu li a {
+  height: 27px;
+  line-height: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+  padding: 6px 1.175em 2px 1.175em;
+  text-align: center;
+  color: white;
+  border-right: 1px solid #555;
+  z-index: 9999;
+}
+
+.nav li a:hover, .nav li a:focus,
+.nav ul.menu li a:hover,
+.nav ul.menu li a:focus {
+  background: url("images/bg_menu_active.gif");
+  text-decoration: none;
+}
+
+.nav .sf-menu li.sfHover > ul {
+  background: #EFEFEF;
+  display: block;
+  border: 6px solid #DDD;
+  top: 2.2em;
+  width: 640px !important;
+  z-index: 501;
+}
+
+.nav .sf-menu li.sfHover > ul div {
+  background: #EFEFEF;
+  float: left;
+  padding: 15px 10px 15px 0px;
+  border-left: 1px solid #DDD;
+  height: 390px;
+  position: relative;
+}
+
+.nav .sf-menu li.sfHover > ul div a {
+  color: #a3141b;
+  border: none;
+  font-size: 12px;
+  height: 1em;
+  font-family: "Helvetica", "Arial", sans-serif;
+  text-align: left;
+}
+
+.nav .sf-menu li.sfHover > ul div a:hover {
+  background: #EFEFEF;
+  color: #333;
+}
+
+.nav .block {
+  margin-bottom: 0;
+}
+
+/* =============================================================================
+ *   Superfish
+ * ========================================================================== */
+
+ul.sf-menu {
+  margin-bottom: 0;
+}
+
+ul.sf-menu a {
+  border-left: 0;
+  border-top: 0;
+  padding: 0 10px;
+  text-decoration: none;
+  height: 2.5em;
+  line-height: 2.5em;
+}
+
+ul.sf-menu li:hover, ul.sf-menu li.sfHover {
+  outline: 0;
+}
+
+ul.sf-menu a:focus, ul.sf-menu a:hover, ul.sf-menu a:active {
+  outline: 0;
+}
+
+/*
+ * Superfish blocks
+ */
+
+.block-superfish ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.block-superfish li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*
+ * Vertical style
+ */
+
+.sf-vertical {
+  width: 100%;
+}
+
+.sf-vertical li {
+  width: 100%;
+}
+
+.sf-vertical li:hover ul, .sf-vertical li.sfHover ul {
+  left: 100%;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.sf-vertical li a {
+  padding: 0 10px;
+}
+
+/*
+ * Navbar style
+ */
+
+.sf-navbar {
+  padding-bottom: 0 !important;
+}
+
+/*
+ * Sensible padding for the default style
+ */
+
+.sf-menu.sf-style-default a {
+  padding: 0 10px;
+}
+
+/* =============================================================================
+ *   Menus, usually blocks
+ * ========================================================================== */
+
+ul.menu {
+  padding-left: 15px;
+}
+
+ul.menu ul {
+  padding-left: 15px;
+}
+
+ul.menu li {
+  margin: 0;
+}
+
+/* If li.content exists it's a problem, so reset the padding */
+
+.block .menu li.content {
+  padding: 0;
+}
+
+/* =============================================================================
+ *   Book navigation menu
+ * ========================================================================== */
+
+.book-navigation .page-up {
+  /* Prevent text wrapping to a new line, assumes English "up" is used (two characters) */
+  min-width: 2em;
+  white-space: nowrap;
+}
+
+.book-navigation .menu {
+  margin-left: 0;
+}
+
+/* =============================================================================
+ *   Breadcrumbs
+ * ========================================================================== */
+
+#breadcrumb {
+  display: none;
+  margin: 10px 0;
+  /* If the label is set to show in theme settings the label class is added */
+}
+
+#breadcrumb .breadcrumb-label {
+  font-size: 1em;
+  display: inline;
+  padding-right: 10px;
+}
+
+#breadcrumb .breadcrumb-label:after {
+  content: ":";
+}
+
+#breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+
+#breadcrumb .with-breadcrumb-label ol {
+  display: inline;
+}
+
+#breadcrumb li {
+  list-style: none;
+  display: inline;
+}
+
+/* =============================================================================
+ *   Pagers
+ * ========================================================================== */
+
+ul.pager {
+  clear: both;
+  margin: 0;
+  text-align: center;
+}
+
+
+.item-list ul.pager li {
+  margin: 0;
+}
+
+
+ul.pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: .5em;
+}
+
+ul.pager li.pager-current {
+  font-weight: 700;
+}
+
+
+.block ul.pager li {
+  margin: 0;
+}
+
+/*
+ * Theme the various states of pager links
+ */
+/* =============================================================================
+ *   Skip Navigation
+ * ========================================================================== */
+
+#skip-link {
+  left: 50%;
+  margin-left: -6.5em;
+  margin-top: 0;
+  padding: 0 0.5em;
+  position: absolute;
+  width: 12em;
+  z-index: 50;
+}
+
+#skip-link a {
+  background: #444;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: block;
+  line-height: 2;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+#skip-link a:link, #skip-link a:visited {
+  background: #444;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: block;
+  line-height: 2;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+#skip-link a:hover, #skip-link a:focus, #skip-link a:active {
+  outline: 0;
+}
+
+/* =============================================================================
+ *   Tabs (local tasks)
+ * ========================================================================== */
+
+#tasks {
+  margin-bottom: 15px;
+  font-size:13px;
+}
+
+
+ul.primary {
+  border-bottom-color: #cccccc;
+  margin: 20px 0;
+  padding: 0 0 0 5px;
+}
+
+ul.primary li {
+  display: block;
+  float: left;
+  margin: 0 1px -1px;
+}
+
+ul.primary li a {
+  background-color: whitesmoke;
+  border-color: #cccccc;
+  margin-right: 1px;
+  padding: 0 10px;
+  display: block;
+  float: left;
+  height: 1.5em;
+  line-height: 1.5em;
+}
+
+ul.primary li a:hover, ul.primary li a:focus {
+  background-color: #eeeeee;
+  border-color: #cccccc;
+}
+
+ul.primary li.active a,
+ul.primary li.active a:hover,
+ul.primary li.active a:focus {
+  background-color: white;
+  border-bottom-color: white;
+}
+
+
+ul.secondary {
+  border-bottom: 1px solid #cccccc;
+  margin: 1em 0 0;
+  padding: 0 .3em 1em;
+}
+
+ul.secondary li {
+  border-right: 0;
+  list-style: none;
+  padding: 0 10px 0 0;
+}
+
+ul.secondary li a:hover, ul.secondary li a.active {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+/* =============================================================================
+ *   Action links
+ * ========================================================================== */
+
+ul.action-links {
+  margin: 20px 0 0;
+  list-style: none;
+}
+
+/* =============================================================================
+ *  Field Styling
+ * ========================================================================== */
+/*
+ * Wrapper for any field
+ */
+/*
+ * Above and inline classes are on the field wrapper
+ */
+/*
+ * When labels are set to inline in field display settings the clearfix class is automatically added
+ */
+/*
+ * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
+ */
+
+.field-label {
+  font-size: 1em;
+  font-weight: 700;
+  font-family: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+}
+
+/*
+ * Field types (Core)
+ */
+/*
+ * Image fields use the <figure> and <figcaption> elements from HTML5
+ */
+/*
+ * Taxonomy
+ */
+
+.field-type-taxonomy-term-reference {
+  /* The same bottom margin as p, blockquote, ul, ol and dl */
+  margin-bottom: 1.5em;
+}
+
+.field-type-taxonomy-term-reference.field-label-inline .field-items {
+  margin: 0;
+  padding: 0;
+}
+
+.field-type-taxonomy-term-reference.field-label-inline .field-item {
+  display: inline;
+  list-style: none;
+  padding: 0 10px 0 0;
+}
+
+/*
+ * Text
+ */
+/*
+ * Long text
+ */
+/*
+ * Text with summary
+ */
+/*
+ * File
+ */
+/*
+ * Number/Integer
+ */
+/*
+ * Decimal
+ */
+/*
+ * Number float
+ */
+/*
+ * List
+ */
+/*
+ * List boolean
+ */
+/*
+ * List integer
+ */
+/*
+ * List float
+ */
+/*
+ * Field types (Contrib)
+ */
+/*
+ * Named fields
+ */
+/*
+ * Underscores in field name are replaced with dashes
+ */
+/*
+ * Image Alignment Theme Settings - included here so you can easily override 
+ */
+/*
+ * Float none setting
+ */
+/*
+ * Float left setting
+ */
+
+.ia-l .field-type-image figure,
+.iat-l .field-type-image figure {
+  margin: 5px 20px 15px 0;
+}
+
+/*
+ * Centered setting
+ */
+
+.ia-c .field-type-image figure,
+.iat-c .field-type-image figure {
+  margin: 5px auto 15px;
+}
+
+/*
+ * Float right setting
+ */
+
+.ia-r .field-type-image figure,
+.iat-r .field-type-image figure {
+  margin: 5px 0 15px 20px;
+}
+
+/* =============================================================================
+ *   Block Styling
+ * ========================================================================== */
+/*
+ * Main wrapper for most blocks, block_system_main does not have it
+ */
+#block-system-main .no-title.block {
+  margin-bottom: 10px;
+  /*margin-right: 10px;*/
+}
+.block {
+  margin-bottom: 15px;
+}
+
+
+.panel-pane.pane-swat-hooks-right-col-pane .panel-pane {
+  margin-bottom: 20px !important;
+}
+
+
+.panel-pane.pane-swat-hooks-right-col-pane {
+  margin: 0px !important;
+}
+
+.panel-pane.pane-swat-hooks-right-col-pane .pane-bundle-component-feature .block-content {
+  padding: 6px;
+}
+
+
+.panel-pane.pane-swat-hooks-right-col-pane .pane-bundle-component-feature .block-content .fieldable-panels-pane p {
+  display: block;
+  color: #333;
+  text-align: center;
+  font-size: 1.7em;
+  margin-bottom: 5px;
+}
+
+.panel-pane.pane-swat-hooks-right-col-pane .pane-bundle-component-feature .block-content .fieldable-panels-pane p a {
+  display: block;
+  background: #a3141b;
+  padding: 8px 6px;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  margin: 0px 10px;
+  font-weight: bold;
+}
+
+/** giving button**/
+.gift_background {
+  padding: 6px;
+  background: #F3ECE4;
+  border: 6px solid #EAE3D9;
+}
+
+.gift_background p {
+  display: block;
+  color: #333;
+  text-align: center;
+  font-size: 1.7em;
+  margin-bottom: 5px;
+}
+
+.gift_background p a {
+  display: block;
+  background: #a3141b;
+  padding: 8px 6px;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  margin: 0px 10px;
+  font-weight: bold;
+}
+
+
+.region-swarthmore-default-mobile-sidebar .panel-pane.pane-swat-hooks-right-col-pane .block-inner,
+.region-swarthmore-default-sidebar .panel-pane.pane-swat-hooks-right-col-pane .block-inner {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-right-col-pane .panel-pane .block-inner,
+.region-swarthmore-default-sidebar .pane-swat-hooks-right-col-pane .panel-pane .block-inner {
+  border: 1px solid #DDD !important;
+  box-shadow: 0px 0px 1px #DEDEDE !important;
+  background: white;
+  margin-bottom: 0px;
+}
+
+/*
+ * Inner wrapper for most blocks, good for margin, padding and borders, block_system_main does not have it
+ */
+
+.front .block-inner,
+.region-swarthmore-default-middle .block-inner,
+.region-swarthmore-default-inset .block-inner,
+.region-swarthmore-default-main .block-inner {
+  background: white;
+  border: 1px solid #DDD;
+  box-shadow: 0px 0px 1px #DEDEDE;
+}
+.region-swarthmore-default-main .block-inner {
+  border:none;
+}
+.front .block-inner .block-content,
+.region-swarthmore-default-middle .block-inner .block-content,
+.region-swarthmore-default-inset .block-inner .block-content,
+.region-swarthmore-default-main .block-inner .block-content {
+  padding: 12px 10px 12px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+
+.region-swarthmore-default-mobile-sidebar .panel-pane .block-inner,
+.region-swarthmore-default-sidebar .panel-pane .block-inner {
+  background: white;
+  border: 1px solid #DDD;
+  box-shadow: 0px 0px 1px #DEDEDE;
+}
+
+.region-swarthmore-default-mobile-sidebar .panel-pane .block-inner .block,
+.region-swarthmore-default-sidebar .panel-pane .block-inner .block {
+  margin: 0px;
+}
+
+.region-swarthmore-default-mobile-sidebar .panel-pane .block-inner .block-inner,
+.region-swarthmore-default-sidebar .panel-pane .block-inner .block-inner {
+  box-shadow: none;
+  border: none;
+}
+
+
+.region-swarthmore-default-mobile-sidebar .pane-bundle-component-link-list .block-content,
+.region-swarthmore-default-sidebar .pane-bundle-component-link-list .block-content {
+  padding: 0px 10px 0px 10px;
+}
+
+
+.region-swarthmore-default-mobile-sidebar .block-content ul,
+.region-swarthmore-default-sidebar .block-content ul {
+  padding: 0px;
+}
+
+.region-swarthmore-default-mobile-sidebar .block-content ul li,
+.region-swarthmore-default-sidebar .block-content ul li {
+  list-style-type: none;
+  border-top: 1px dotted #DDD;
+  padding: 5px 0px;
+}
+
+/*
+ * The first block in the region
+ */
+/*
+ * The last block in the region
+ */
+/*
+ * Zebra striping for each block in the region
+ */
+/*
+ * Zebra striping for each block in the region
+ */
+/*
+ * Block title
+ */
+
+.block-title {
+  margin: 0;
+}
+
+/*
+ * Block content wrapper
+ */
+/*
+ * Match item list and block menu margin and padding
+ */
+
+.block-content ul,
+.block-content ol {
+  padding: 0 0 0 15px;
+}
+
+.block-content li {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Block for the latest news items in the first category
+ */
+/*
+ * Block for the latest news items in the first feed
+ */
+/*
+ * First block created with "Add block" link
+ */
+/*
+ * "Recent blog posts" block
+ */
+/*
+ * "Book navigation" block for the current book's table of contents
+ */
+/*
+ * "Recent comments" block
+ */
+/*
+ * "Active forum topics" block
+ */
+/*
+ * "New forum topics" block
+ */
+/*
+ * Language switcher block
+ */
+/*
+ * Custom menu block
+ */
+/*
+ * "Recent content" block
+ */
+/*
+ * "Syndicate" block for primary RSS feed; see also page.css's .feed-icon
+ */
+/*
+ * "Most recent poll" block
+ */
+/*
+ * "Author information" block for the profile of the page's author
+ */
+/*
+ * "Search form" block
+ */
+/*
+ * "Shortcuts" block
+ */
+/*
+ * "Popular content" block
+ */
+/*
+ * "Main menu" block
+ */
+/*
+ * "Management" block for Drupal management menu
+ */
+/*
+ * "Navigation" block for Drupal navigation menu
+ */
+/*
+ * "User menu" block for Drupal user menu
+ */
+/*
+ * "System help" block
+ */
+/*
+ * "Main page content" block
+ */
+/*
+ * "Powered by Drupal" block
+ */
+/*
+ * "User login form" block
+ */
+/*
+ * "Who's new" block for a list of the newest users
+ */
+/*
+ * "Who's online" block for a list of the online users
+ */
+/* =============================================================================
+ *   Node Styling
+ * ========================================================================== */
+
+.node {
+  margin-bottom: 20px;
+}
+
+.node .node-title {
+  margin: 0;
+}
+
+/*
+ * All nodes are given a node-FOO class that describes the type of content that
+ * it is. If you create a new content type called "my-custom-type", it will
+ * receive a "node-my-custom-type" class.
+ */
+/* =============================================================================
+ *   Comment Styling - Comments, comment wrapper, comment form
+ * ========================================================================== */
+/*
+ * Wrapper for the list of comments and its titles
+ */
+
+#comments {
+  margin: 1.5em 0;
+}
+
+#comments h2.comment-title {
+  margin: 0;
+}
+
+#comments h2.comment-form {
+  margin: 0;
+}
+
+/*
+ * Wrapper for a single comment
+ */
+
+.comment {
+  margin-bottom: 20px;
+}
+
+/*
+ * Comment title
+ */
+
+.comment-title {
+  margin: 0;
+}
+
+/*
+ * Comment states
+ */
+/*
+ * Preview of the comment before submitting new or updated comment
+ */
+/*
+ * "New" marker for comments that are new for the current user
+ */
+
+.new {
+  color: #cc0000;
+}
+
+/*
+ * Nested comments are indented
+ */
+
+.indented {
+  margin-left: 40px;
+}
+
+/* =============================================================================
+ *   Forms
+ * ========================================================================== */
+/*
+ * Wrapper for a form element (or group of form elements) and its label
+ */
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #cc0000;
+}
+
+.form-item label {
+  font-weight: 700;
+}
+
+.form-item .description {
+  font-size: 0.85em;
+}
+
+/*
+ * Highlight marks and form required mark
+ */
+
+.marker,
+.form-required {
+  color: #cc0000;
+}
+
+/*
+ * The submit button
+ */
+
+.container-inline div,
+.container-inline label {
+  display: inline;
+}
+
+/*
+ * Define consistent borders
+ */
+
+fieldset {
+  border: 1px solid #cccccc;
+}
+
+/*
+ * Tips for Drupal's input formats
+ */
+/*
+ * Buttons used by contrib modules like Media
+ */
+/*
+ * Password confirmation
+ */
+
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/* =============================================================================
+ *   Tables
+ * ========================================================================== */
+
+table {
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+}
+
+table caption {
+  background: #333;
+  color: white;
+  padding: 5px 0px;
+  text-align: center;
+}
+
+table.sticky-header {
+  z-index: 10;
+}
+
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  border-color: #cccccc;
+}
+
+
+table,
+td,
+th {
+  vertical-align: middle;
+}
+
+
+caption,
+th,
+td {
+  text-align: left;
+}
+
+
+thead tr {
+  font-weight: 700;
+  background-color: #e5e5e5;
+}
+
+
+td,
+th {
+  border-bottom: 0;
+  margin: 0;
+  padding: 5px 7px;
+}
+
+
+tbody tr {
+  border-top: 1px solid #cccccc;
+}
+
+
+tr {
+  /* Table row striping */
+}
+
+tr.odd {
+  background: white;
+}
+
+tr.info, tr.even, tr:nth-child(2n+2) {
+  border-bottom: 0;
+  background-color: whitesmoke;
+}
+
+tr.odd td.active {
+  background-color: #eeeeee;
+}
+
+tr.even td.active {
+  background-color: #ebebeb;
+}
+
+/*
+ * Forum tables
+ * Core sets white-space to nowrap, which makes no sense
+ */
+
+#forum td .created,
+#forum td .posts,
+#forum td .topics,
+#forum td .last-reply,
+#forum td .replies,
+#forum td .pager {
+  white-space: normal;
+}
+
+/* =============================================================================
+ *   Messages
+ * ========================================================================== */
+
+div.messages {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*
+ * Unpublished nodes
+ */
+
+.node-unpublished p.unpublished,
+.comment-unpublished p.unpublished {
+  color: pink;
+  color: rgba(239, 170, 170, 0.4);
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  text-align: center;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.ie6-7 .node-unpublished p.unpublished > *, .ie6-7
+.comment-unpublished p.unpublished > * {
+  position: relative;
+}
+
+/* =============================================================================
+ *    Maintenance pages
+ * ========================================================================== */
+
+.maintenance-page .container {
+  padding: 40px 0;
+}
+
+.maintenance-page #site-name,
+.maintenance-page #page-title {
+  margin: 0;
+}
+
+
+.db-offline .container {
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+  max-width: 960px;
+}
+
+.db-offline div.messages {
+  margin: 20px 0 0;
+}
+
+.db-offline #content {
+  padding: 20px 0;
+}
+
+/* =============================================================================
+ *   Misc overrides for contrib modules
+ * ========================================================================== */
+/*
+ * Admin menu overrides
+ */
+
+#admin-menu {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Devel Module
+ */
+
+.dev-query {
+  background: #eeeeee;
+  padding: 30px;
+}
+
+/*
+ * Styleguide module tweaks
+ */
+
+#styleguide-header {
+  padding: 0 10px;
+}
+
+#styleguide-header .item-list {
+  font-family: inherit;
+  margin: 0 20px 20px 0;
+  min-height: 260px;
+  width: auto;
+}
+
+/* Panels */
+
+div.region-swarthmore-default-sidebar.region {
+  float: right !important;
+}
+
+
+div.swarthmore-default .inset-wrapper {
+  float: left !important;
+}
+
+/* Panel Panes */
+
+h3.pane-title {
+  padding: 4px 0px 4px 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+  line-height: 1.3em;
+  letter-spacing: 0.4px;
+  background: #101010 url("images/bg_title.gif") repeat-x top left;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+}
+
+h3.pane-title a {
+  color: white;
+}
+
+
+.field-collection-container .field-items .field-items h3.field-item {
+  margin-bottom: 10px;
+}
+
+/* Site Navigation */
+
+.pane-swat-hooks-site-navigation-pane .module_title h3.pane-title {
+  background: #631919 url("images/prim_nav_bg2.gif") repeat-y;
+}
+
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li {
+  list-style-type: none;
+  list-style-image: none;
+  line-height: 1.35em;
+  padding: 0px;
+  background: #dedede url("images/prim_nav_bg3.gif") repeat-x;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li a,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li a {
+  display: block;
+  font-size: 1.1em;
+  padding: 5px 5px 5px 15px;
+  color: #333;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li a:hover,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li a:hover {
+  text-decoration: none;
+  background: white;
+  color: #a3141b;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li a.active-trail,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li a.active-trail {
+  font-weight: bold;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li a.active,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li a.active {
+  font-style: italic;
+  background: white url("images/siteArrow1.png") no-repeat 4px 9px;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li ul,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li ul li,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li ul li {
+  border-top: 1px dotted #CCC;
+  padding-left: 20px;
+  background: white;
+  border-bottom: none;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-navigation-pane ul li.last,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-navigation-pane ul li.last {
+  border-bottom: none;
+}
+
+/* List Links */
+
+.pane-swat-hooks-site-admin-pane .field-name-field-component-link-list,
+.pane-bundle-component-link-list .field-name-field-component-link-list {
+  clear: both;
+}
+
+.pane-swat-hooks-site-admin-pane ul,
+.pane-bundle-component-link-list ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.pane-swat-hooks-site-admin-pane ul li,
+.pane-bundle-component-link-list ul li {
+  list-style-type: none;
+  border-top: 1px dotted #CCC;
+}
+
+.pane-swat-hooks-site-admin-pane ul li:first-child,
+.pane-bundle-component-link-list ul li:first-child {
+  border-top: none;
+}
+
+.pane-swat-hooks-site-admin-pane ul li a,
+.pane-bundle-component-link-list ul li a {
+  display: block;
+  color: #a3141b;
+}
+
+.pane-swat-hooks-site-admin-pane ul li a:hover,
+.pane-bundle-component-link-list ul li a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-admin-pane ul,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-admin-pane ul {
+  padding: 0px;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-admin-pane ul li,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-admin-pane ul li {
+  padding: 0px;
+}
+
+.region-swarthmore-default-mobile-sidebar .pane-swat-hooks-site-admin-pane ul li a,
+.region-swarthmore-default-sidebar .pane-swat-hooks-site-admin-pane ul li a {
+  padding: 0px;
+}
+
+/* Audio / Video */
+
+.pane-bundle-component-swarthmore-audio-video h3.field-item {
+  margin: 10px 0 0 10px;
+  color: #4D4D4D;
+  font-family: "Times New Roman",Times,serif;
+  font-size: 1.60em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.pane-bundle-component-swarthmore-audio-video .field-items p a {
+  border-bottom: 1px dotted #777;
+  color: #a3141b;
+  line-height: 1em;
+  display: inline;
+}
+
+.pane-bundle-component-swarthmore-audio-video .field-items p a:hover {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+.pane-bundle-component-swarthmore-audio-video .field-items a {
+  display: block;
+  text-align: right;
+  padding-right: 10px;
+  color: #a3141b;
+}
+
+.pane-bundle-component-swarthmore-audio-video .media_functions {
+  background: #EFEFEF;
+  border-top: 1px dotted #CCC;
+  padding: 5px 9px 5px 9px;
+  margin: 6px 0 3px 0;
+}
+
+.pane-bundle-component-swarthmore-audio-video .media_functions a {
+  color: #a3141b;
+}
+
+.pane-bundle-component-swarthmore-audio-video .media_functions a:hover {
+  color: #333;
+}
+
+/* Mashup */
+
+.pane-bundle-component-mashup .block-content {
+  padding: 12px 10px 12px 10px;
+}
+
+.pane-bundle-component-mashup .block-content .field-collection-container,
+.pane-bundle-component-mashup .block-content .field-item {
+  margin: 0px;
+}
+
+.pane-bundle-component-mashup .block-content ul {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.pane-bundle-component-mashup .block-content h3.field-item {
+  margin: 0px 0px 10px 0px !important;
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  color: #4D4D4D;
+  line-height: 22px;
+}
+
+.pane-bundle-component-mashup .block-content h3.field-item a {
+  color: #a3141b;
+}
+
+.pane-bundle-component-swarthmore-audio-video img,
+img.image-style-audio-user-thumbnail,
+.pane-swat-hooks-site-admin-pane img,
+.pane-bundle-component-link-list img,
+.field-name-field-primary-image img,
+.pane-bundle-component-events-calendar-feed .block-inner img,
+.field-name-field-component-news-display .view-news-list img,
+.pane-bundle-component-feature img,
+.pane-bundle-component-mashup .block-content img,
+.pane-bundle-component-randomize .block-content img {
+  border: 1px solid #DDD;
+  padding: 5px;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.pane-bundle-component-swarthmore-audio-video img,
+img.image-style-audio-user-thumbnail,
+.pane-swat-hooks-site-admin-pane img,
+.pane-bundle-component-link-list img,
+.pane-bundle-component-events-calendar-feed .block-inner img,
+.field-name-field-component-news-display .view-news-list img,
+.pane-bundle-component-feature img,
+.pane-bundle-component-mashup .block-content img,
+.pane-bundle-component-randomize .block-content img {
+  max-width: 264px;
+
+}
+
+.pane-bundle-component-mashup .block-content .field-items > a {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+.pane-bundle-component-mashup .block-content .weather-forecast {
+  clear: both;
+}
+
+/* Randomize */
+
+.pane-bundle-component-randomize .block-content {
+  padding: 12px 10px 12px 10px;
+}
+
+.pane-bundle-component-randomize .block-content h3 {
+  margin: 0px 0px 5px 0px;
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  color: #4D4D4D;
+}
+
+.pane-bundle-component-randomize .block-content .field-collection-container,
+.pane-bundle-component-randomize .block-content .field-item,
+.pane-bundle-component-randomize .block-content p {
+  margin: 0px;
+}
+
+.pane-bundle-component-randomize .block-content .field-items p a {
+  border-bottom: 1px dotted #777;
+  color: #a3141b;
+  line-height: 1em;
+  display: inline;
+  font-style: normal;
+  padding-right: 0px;
+}
+
+.pane-bundle-component-randomize .block-content .field-items p a:hover {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+.pane-bundle-component-randomize .block-content .field-items a {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  color: #a3141b;
+  padding-right: 10px;
+}
+
+
+/* Contact Pane */
+
+.pane-bundle-component-contact .block-content,
+.pane-swat-hooks-contact-pane .block-content {
+  padding: 12px 10px 12px 10px;
+}
+
+.pane-bundle-component-contact .block-content h4,
+.pane-swat-hooks-contact-pane .block-content h4 {
+  margin: 0px 0px 5px 0px;
+  font-size: 1.3em;
+}
+
+.pane-bundle-component-contact .block-content .field-name-field-component-contact-info,
+.pane-swat-hooks-contact-pane .block-content .field-name-field-component-contact-info {
+  margin-bottom: 5px;
+}
+
+.pane-bundle-component-contact .block-content p,
+.pane-swat-hooks-contact-pane .block-content p {
+  margin-bottom: 0px;
+}
+
+.pane-bundle-component-contact .block-content a,
+.pane-swat-hooks-contact-pane .block-content a {
+  border-bottom: 1px dotted #777;
+  color: #a3141b;
+  line-height: 1em;
+}
+
+.pane-bundle-component-contact .block-content a:hover,
+.pane-swat-hooks-contact-pane .block-content a:hover {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+.pane-bundle-component-contact .block-content .field-name-field-component-social-media li,
+.pane-swat-hooks-contact-pane .block-content .field-name-field-component-social-media li {
+  display: inline;
+  list-style-type: none;
+}
+
+.pane-bundle-component-contact .block-content .field-name-field-component-social-media li a,
+.pane-swat-hooks-contact-pane .block-content .field-name-field-component-social-media li a {
+  border: none;
+}
+
+/* Feature */
+
+.pane-bundle-component-feature .block-content {
+  padding: 12px 10px 12px 10px;
+}
+
+.pane-bundle-component-feature table {
+  margin: 0px;
+  width: 100%;
+}
+
+.pane-bundle-component-feature a {
+  border-bottom: 1px dotted #777;
+  color: #a3141b;
+  line-height: 1em;
+}
+
+.pane-bundle-component-feature a:hover {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+/* VIEWS */
+/* Contact */
+/* News */
+
+.region-swarthmore-default-mobile-sidebar .view-news-list,
+.region-swarthmore-default-sidebar .view-news-list {
+  padding: 10px;
+}
+
+.field-name-field-component-news-display .view-news-list .module_list {
+  clear: both;
+}
+
+.field-name-field-component-news-display .view-news-list a {
+  font-style: normal !important;
+}
+
+.field-name-field-component-news-display .view-news-list h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 1.6em;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.field-name-field-component-news-display .view-news-list h3 a {
+  color: #a3141b;
+  display: inline;
+}
+
+.field-name-field-component-news-display .view-news-list h3 a:hover {
+  color: #333;
+}
+
+.field-name-field-component-news-display .view-news-list p {
+  margin-bottom: 3px;
+}
+
+.field-name-field-component-news-display .view-news-list p a {
+  display: inline;
+  color: #a3141b;
+  font-style: italic;
+}
+
+.field-name-field-component-news-display .view-news-list p a:hover {
+  color: #333;
+}
+
+.field-name-field-component-news-display .view-news-list ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.field-name-field-component-news-display .view-news-list li {
+  list-style-type: none;
+  padding: 5px 0px;
+  border-top: 1px dotted #CCC;
+}
+
+.field-name-field-component-news-display .view-news-list li a {
+  display: inline;
+  color: #a3141b;
+}
+
+.field-name-field-component-news-display .view-news-list li a:hover {
+  color: #333;
+}
+
+
+.pane-bundle-component-news-feed .field-items a {
+  display: block;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  color: #a3141b;
+  font-style: italic;
+}
+
+.pane-bundle-component-news-feed .field-items a:hover {
+  color: #333;
+}
+
+/* Calendar Feed */
+
+.pane-bundle-component-events-calendar-feed .block-inner {
+  background: white;
+  border: 1px solid #DDD;
+  box-shadow: 0px 0px 1px #DEDEDE;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner .block-content {
+  padding: 0px 10px 12px 10px;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner h3 {
+  font-size: 1.5em;
+  line-height: 1.3em;
+  margin-bottom: 10px;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner .module_list {
+  clear: both;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner .module_list ul {
+  padding: 0px;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner .module_list ul li {
+  list-style-type: none;
+  border-top: 1px dotted #DDD;
+  padding: 2px 0px;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner .module_list ul li.list_top {
+  border-top: none;
+}
+
+.pane-bundle-component-events-calendar-feed .block-inner .field-items > a {
+  display: block;
+  font-style: italic;
+  width: 100%;
+  text-align: right;
+}
+
+/* Inherit full image */
+
+/* Next Train */
+
+.module-train-feed {
+  margin-top: 5px;
+  border-top: 1px solid #DDD;
+  padding: 5px 0 0 40px;
+  background: transparent url("images/icon_clock1.png") no-repeat 0px 7px;
+}
+
+.module-train-feed a {
+  border-bottom: 1px dotted #777;
+  color: #a3141b;
+  line-height: 1em;
+}
+
+.module-train-feed a:hover {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+/* REGIONS */
+
+.swarthmore-default > .inset-wrapper div#middle-content {
+  width: 100%;
+}
+
+.swarthmore-default > .inset-wrapper div#middle-content div.region-swarthmore-default-inset,
+.swarthmore-default > .inset-wrapper div#middle-content div.region-swarthmore-default-middle {
+  width: 50%;
+}
+
+
+.swarthmore-default > .inset-wrapper div.region-swarthmore-default-mobile-sidebar {
+  display: none;
+}
+
+
+.field-collection-view {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.module_inner h4 {
+  margin: 0 0 6px 0;
+  color: #4D4D4D;
+  font-family: "Times New Roman",Times,serif;
+  font-size: 1.60em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.module_inner h4 a {
+  color: #a3141b;
+}
+
+
+.pane-swat-hooks-site-admin-pane .block-content {
+  padding-top: 10px;
+}
+
+
+.pane-swat-hooks-site-admin-pane .item-list ul li {
+  margin-left: 0px;
+  padding-left: 15px;
+}
+
+#block-system-main {
+	margin: 0;
+}
+
+/**
+ * Move the panelizer contextual menu out of the way!
+ */
+#block-system-main > .contextual-links-region {
+  top: -30px;
+  padding-top: 30px;
+}
+
+/* MASTHEAD SEARCH FORM */
+#searchform_header, 
+#itssearch {
+  width: 232px;
+  height: 25px;
+  margin: 0 0 4px 0;
+  padding: 2px;
+  font-size: 13px;
+  float:right;
+}
+#searchform_header label, 
+#itssearch label {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+#search_field_header, 
+#autocompsearch
+button#search_btn {
+  margin:0;
+  padding: 0;
+}
+#search_field_header, 
+#autocompsearch {
+  width: 150px;
+  height:18px;
+  float: left;
+  margin: 0;
+  padding: 3px 4px 4px 10px;
+  font: 14px "Times New Roman", Times, serif;
+  color: #333333;
+  border: 0 none;
+  -moz-border-radius: 6px 0px 0px 6px;
+  -webkit-border-radius: 6px 0px 0px 6px;
+  border-radius: 6px 0px 0px 6px;
+}
+.header_searchform form button#search_btn,
+.footer_searchform form button#search_btn {
+  background: white url("images/arrow-red.png") no-repeat 93% 53%;
+  border: 0 none;
+  -moz-border-radius: 0px 6px 6px 0px;
+  -webkit-border-radius: 0px 6px 6px 0px;
+  border-radius: 0px 6px 6px 0px;
+  border-left: 1px solid #888;
+  box-shadow: 2px 0 15px -6px  #888888 inset;
+  -moz-box-shadow: 2px 0 15px -6px  #888888 inset; 
+  -webkit-box-shadow: 2px 0 15px -6px  #888888 inset;
+  cursor: pointer;
+  display: block;
+  float: left;
+  text-align: left;
+  font: italic normal normal 1.0em/normal Georgia, 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  padding-left: 8px;
+  height: 26px;
+  width: 65px;
+}
+.header_searchform form button#search_btn {
+  height: 25px;
+}
+button#search_btn:hover {
+  background-image: url("images/arrow-black.png");
+  box-shadow: 2px 0 5px 2px  #888888;
+  -moz-box-shadow: 2px 0 15px -6px  #888888; 
+  -webkit-box-shadow: 2px 0 15px -6px  #888888;
+}
+/*  to remove padding around superslide show on home page */
+.region.region-three-33-top.region-conditional-stack .block-inner .block-content {
+  padding: 0;
+}
+div.module_list ul {
+  clear:left;
+  padding:0;
+  list-style: none;
+}
+div.module_list ul li {
+  padding: 3px 0;
+  border-top: 1px dotted #CCCCCC;
+}
+div.module_list ul li:first-child {
+  border-top: 0 none;
+hr {
+  border: 0;
+  padding:0;
+  margin: 0 25px 25px;
+  border-bottom: 1px dotted #ccc;
+}
+
+.node.node-site-home {
+  margin-bottom: 0;
+}
+/* simple slideshow */
+div.field.field-name-field-media-item {  
+  /* padding: 12px 10px;
+  margin: 4px 8px;*/
+  border: 1px solid rgb(221, 221, 221);
+  -webkit-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+  -moz-box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+  box-shadow: 1px 1px 7px rgba(153, 153, 153, 0.2);
+  margin:10px 15px;
+}
+/* home page slideshow */
+.front .node-site-home div.field.field-name-field-media-item {
+  padding:0;
+  margin: 0;
+  border: 0;
+}
+.panel-separator {
+  clear: both;
+}
+/* -----------------------
+ Corrine Detective Styles
+ -------------------------*/
+ .nodeTpl {background-color: #ffcc00;}
+ .pageTpl {background-color: aliceblue; }
+ .ddPanels { color: navy; background: #dedede; padding: 2px; }
+.ddFieldable { color: #dedede; background: pink; padding: 2px;}
+.ppPane { background-color: #E2F6F5;}
+.ppFpp {background-color: #E9E1FA; }
+.ppNode {background-color:#A8F2EB;}
+ .nodeTpl, .pageTpl, .ddPanels, 
+ .ddFieldable, .ppPane, .ppFpp, .ppNode { font-size: 14px!important; }
+
